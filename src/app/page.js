@@ -1,65 +1,77 @@
-import Image from "next/image";
+"use client";
+
+import HomeImageLoad from "@/components/homeImage";
+
 
 export default function Home() {
+  const mounted = true;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[4rem_4rem]" />
+
+      {/* Gradient orb - subtle and mysterious */}
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
+
+      {/* Dither shader demo */}
+      <HomeImageLoad />
+
+      {/* Main content */}
+      <div
+        className={`relative z-10 text-center px-6 transition-all duration-1000 ${
+          mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        {/* Name */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-6">
+          Rinku Das
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-sm text-gray-400 tracking-[0.3em] mb-12 font-light">
+          <span className="font-bold">Director</span> of Nrtiyajyoti Dance Academy USA 
+          <br></br> 
+          <span className="font-bold">Empaneled Artist</span> of ICCR, Ministry of Culture, Govt. of India
+        </p>
+
+        {/* Coming Soon */}
+        <div className="inline-block">
+          <div className="text-xs md:text-sm text-gray-500 tracking-[0.2em] uppercase mb-2">
+            Full Portfolio Coming Soon
+          </div>
+          <div className="h-px w-full bg-linear-to-r from-transparent via-gray-700 to-transparent" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        {/* Contact/social links */}
+        <div className="mt-16 flex gap-8 justify-center text-gray-600 text-sm">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:rbdas1@asu.edu"
+            className="hover:text-gray-300 transition-colors duration-300"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Email
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.instagram.com/rinkubdas123/"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-gray-300 transition-colors duration-300"
           >
-            Documentation
+            Instagram
+          </a>
+          <a
+            href="https://www.facebook.com/rinku.b.das/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300 transition-colors duration-300"
+          >
+            Facebook
           </a>
         </div>
-      </main>
+      </div>
+
+      {/* Bottom corner accent */}
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-linear-to-tl from-white/3 to-transparent" />
     </div>
   );
 }
