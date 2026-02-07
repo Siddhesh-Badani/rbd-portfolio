@@ -6,7 +6,7 @@ export default function HomeImageLoad() {
     <div className="flex flex-col items-center gap-6 p-8">
       <div className="relative overflow-hidden rounded-2xl shadow-2xl dark:border-neutral-800">
         <DitherShader
-          src="/rdasHome2.jpg"
+          src="/rdasHome.jpg"
           gridSize={1}
           ditherMode="bayer"
           colorMode="grayscale"
